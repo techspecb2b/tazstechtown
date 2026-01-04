@@ -3,16 +3,21 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Contact | Tazs Tech Town</title>
+<title>Get a Quote | Tazs Tech Town</title>
+
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
 <style>
 body{margin:0;font-family:'Inter';background:#000;color:#fff}
 header{display:flex;justify-content:space-between;align-items:center;padding:16px 28px}
-.logo{font-family:'Poppins';font-weight:700;color:#8F00B6}
+.logo{font-family:'Poppins';font-weight:700;color:#8F00B6;font-size:1.5rem}
 nav a{color:#fff;text-decoration:none;margin-left:20px;font-family:'Poppins'}
 nav a.cta{background:#8F00B6;padding:8px 14px;border-radius:6px}
-.page{padding:70px 10%}
-footer{text-align:center;padding:20px;border-top:1px solid #222}
+.page{padding:80px 10%}
+form{max-width:520px}
+select,input,button{width:100%;padding:14px;margin-bottom:16px;border-radius:6px;border:none}
+button{background:#8F00B6;color:#fff;font-family:'Poppins';font-size:1rem}
 </style>
 </head>
 
@@ -30,11 +35,48 @@ footer{text-align:center;padding:20px;border-top:1px solid #222}
 </header>
 
 <section class="page">
-  <h1>Contact Us</h1>
-  <p>Serving St. Marys, GA and surrounding areas.</p>
+  <h1>Get a Repair Quote</h1>
+  <p>Tell us what needs fixing and we’ll handle the rest.</p>
+
+  <form>
+    <select id="device" onchange="loadRepairs()">
+      <option value="">Select Device Type</option>
+      <option value="phone">Phone</option>
+      <option value="tablet">Tablet</option>
+      <option value="computer">Computer</option>
+      <option value="console">Game Console</option>
+    </select>
+
+    <select id="repair">
+      <option>Select Repair Type</option>
+    </select>
+
+    <input type="text" placeholder="Your Name">
+    <input type="email" placeholder="Email">
+    <input type="text" placeholder="Service Location (St. Marys, GA)">
+    <button>Request Quote</button>
+  </form>
 </section>
 
-<footer>We Come To You</footer>
+<script>
+const repairs={
+  phone:["Screen Replacement","Battery Replacement","Charging Port","Water Damage","Camera Issue"],
+  tablet:["Screen Repair","Battery Replacement","Software Issue"],
+  computer:["Virus Removal","Hardware Repair","Slow Performance","OS Issues"],
+  console:["HDMI Port","Overheating","Disk Drive","Power Issues"]
+};
+
+function loadRepairs(){
+  let device=document.getElementById('device').value;
+  let repair=document.getElementById('repair');
+  repair.innerHTML="";
+  repairs[device]?.forEach(r=>{
+    let o=document.createElement('option');
+    o.text=r;
+    repair.add(o);
+  });
+}
+</script>
 
 </body>
 </html>
