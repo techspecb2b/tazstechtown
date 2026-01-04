@@ -2,41 +2,45 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Contact | Tazs Tech Town</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<title>Contact | Tazs Tech Town</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <style>
 body{margin:0;font-family:Inter;background:#000;color:#fff}
-header{background:#8F00B6;padding:14px 28px;display:flex;justify-content:space-between}
-header img{height:42px}
-nav a{color:#fff;margin-left:20px}
-.section{padding:90px 10%;text-align:center}
+nav{background:#8F00B6;padding:15px 30px;display:flex;justify-content:space-between;align-items:center}
+nav img{height:40px}
+nav ul{list-style:none;display:flex;gap:20px}
+nav .cta{background:#000;padding:10px 18px;border-radius:6px}
+.section{padding:80px 10%;text-align:center}
 form{max-width:500px;margin:auto}
-input,textarea{
-  width:100%;padding:14px;margin:12px 0;border-radius:6px;border:none
-}
-button{background:#8F00B6;color:#fff;padding:14px;border:none;border-radius:6px}
+input,textarea{width:100%;padding:12px;margin-bottom:15px;border-radius:6px;border:none}
+button{background:#8F00B6;color:#000;padding:14px;border:none;border-radius:6px;font-weight:700}
 </style>
 </head>
 <body>
 
-<header>
-  <a href="home.html"><img src="logo.svg"></a>
-  <nav>
-    <a href="home.html">Home</a>
-    <a href="services.html">Services</a>
-    <a href="getquote.html">Get a Quote</a>
-  </nav>
-</header>
+<nav>
+<a href="home.html"><img src="logo.svg"></a>
+<ul>
+<li><a href="home.html">Home</a></li>
+<li><a href="about.html">About</a></li>
+<li><a href="services.html">Services</a></li>
+<li><a href="contact.html">Contact</a></li>
+<li><a class="cta" href="getquote.html">Get a Quote</a></li>
+</ul>
+</nav>
 
 <section class="section">
-  <h1>Contact Us</h1>
-  <form>
-    <input placeholder="Name">
-    <input placeholder="Email">
-    <textarea placeholder="Message"></textarea>
-    <button>Send Message</button>
-  </form>
+<h1>Contact Us</h1>
+<p>Have a question or need to schedule a repair?</p>
+
+<form>
+<input placeholder="Name">
+<input placeholder="Email">
+<textarea placeholder="Message"></textarea>
+<button>Send Message</button>
+</form>
 </section>
 
 </body>
