@@ -1,15 +1,124 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Tazs Tech Town | Mobile Tech Repair</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tazs Tech Town | Mobile Tech Repair</title>
 
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="css/style.css">
+<style>
+:root {
+  --purple:#8F00B6;
+  --black:#000;
+  --white:#fff;
+}
+
+* { box-sizing:border-box; }
+
+body {
+  margin:0;
+  font-family:'Inter', sans-serif;
+  background:#000;
+  color:#fff;
+}
+
+header {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:16px 28px;
+  background:#000;
+}
+
+.logo {
+  font-family:'Poppins', sans-serif;
+  font-size:1.5rem;
+  font-weight:700;
+  color:var(--purple);
+}
+
+nav a {
+  color:#fff;
+  text-decoration:none;
+  margin-left:20px;
+  font-family:'Poppins', sans-serif;
+  font-weight:500;
+}
+
+nav a.cta {
+  background:var(--purple);
+  padding:8px 14px;
+  border-radius:6px;
+}
+
+.hero {
+  position:relative;
+  height:75vh;
+  overflow:hidden;
+}
+
+.slide {
+  position:absolute;
+  inset:0;
+  background-size:cover;
+  background-position:center;
+  opacity:0;
+  transition:opacity 1s ease;
+}
+
+.slide.active { opacity:1; }
+
+.hero-overlay {
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,0.55);
+}
+
+.hero-content {
+  position:absolute;
+  bottom:25%;
+  left:8%;
+  max-width:500px;
+}
+
+.hero-content h1 {
+  font-family:'Poppins', sans-serif;
+  font-size:2.8rem;
+  margin-bottom:10px;
+}
+
+.hero-content p {
+  font-size:1.1rem;
+}
+
+.section {
+  padding:70px 10%;
+  text-align:center;
+}
+
+.section h2 {
+  font-family:'Poppins', sans-serif;
+  font-size:2.2rem;
+  color:var(--purple);
+}
+
+.section p {
+  max-width:700px;
+  margin:20px auto 0;
+  font-size:1.05rem;
+}
+
+footer {
+  text-align:center;
+  padding:20px;
+  border-top:1px solid #222;
+  font-size:.9rem;
+}
+</style>
 </head>
+
 <body>
 
 <header>
@@ -19,46 +128,10 @@
     <a href="about.html">About</a>
     <a href="services.html">Services</a>
     <a href="contact.html">Contact</a>
-    <a class="cta" href="getquote.html">Get a Quote</a>
+    <a href="getquote.html" class="cta">Get a Quote</a>
   </nav>
 </header>
 
 <section class="hero">
-  <div class="slides">
-    <div class="slide active" style="background-image:url('images/hero1.jpg')">
-      <div class="hero-content">
-        <h1>We Come To You.</h1>
-        <p>On-site mobile tech repair across St. Marys, GA & surrounding areas.</p>
-      </div>
-    </div>
-    <div class="slide" style="background-image:url('images/hero2.jpg')">
-      <div class="hero-content">
-        <h1>Phones. Tablets. Consoles. Computers.</h1>
-        <p>Fast, professional repairs—wherever you are.</p>
-      </div>
-    </div>
-    <div class="slide" style="background-image:url('images/hero3.jpg')">
-      <div class="hero-content">
-        <h1>No Storefront. No Waiting.</h1>
-        <p>We repair on-the-spot or pick up & return.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="highlight">
-  <h2>Mobile Repair That Works Around You</h2>
-  <p>
-    Tazs Tech Town is a fully mobile technology repair service.  
-    We travel to homes, offices, schools, and businesses throughout
-    <strong>St. Marys, GA and surrounding areas</strong>.
-  </p>
-</section>
-
-<footer>
-  <p>© 2026 Tazs Tech Town • Mobile Technology Repair</p>
-</footer>
-
-<script src="js/slider.js"></script>
-</body>
-</html>
+  <div class="slide active" style="background-image:url('images/hero1.jpg')"></div>
+  <div class="slide" style="background-image
