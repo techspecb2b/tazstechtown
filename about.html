@@ -2,92 +2,38 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>About | Tazs Tech Town</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <style>
-body{margin:0;font-family:'Inter',sans-serif;background:#000;color:#fff}
-header{display:flex;justify-content:space-between;align-items:center;padding:16px 28px;background:#000;position:sticky;top:0}
-.logo{font-family:'Poppins';font-weight:700;font-size:1.6rem;color:#8F00B6}
-nav{display:flex;gap:20px}
-nav a{color:#fff;text-decoration:none;font-family:'Poppins'}
-nav a.cta{background:#8F00B6;padding:8px 16px;border-radius:6px}
-.menu-toggle{display:none;font-size:1.6rem;cursor:pointer}
-.page{padding:80px 10%;max-width:1100px;margin:auto}
-h1{font-family:'Poppins';font-size:2.6rem;color:#8F00B6}
-p{font-size:1.05rem;line-height:1.7;margin-bottom:20px}
-.features{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:30px;margin-top:50px}
-.feature{background:#0a0a0a;padding:30px;border-radius:14px}
-.feature i{font-size:2rem;color:#8F00B6;margin-bottom:15px}
-footer{text-align:center;padding:25px;border-top:1px solid #222;font-size:.9rem}
-@media(max-width:900px){
-  nav{position:absolute;top:70px;right:0;background:#000;flex-direction:column;width:220px;padding:20px;display:none}
-  nav.show{display:flex}
-  .menu-toggle{display:block}
-}
+body{margin:0;font-family:Inter;background:#000;color:#fff}
+header{background:#8F00B6;padding:14px 28px;display:flex;justify-content:space-between}
+header img{height:42px}
+nav a{color:#fff;margin-left:20px}
+.section{padding:90px 10%;max-width:900px;margin:auto;text-align:center}
 </style>
 </head>
-
 <body>
 
 <header>
-  <div class="logo">Tazs Tech Town</div>
-  <div class="menu-toggle" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
-  <nav id="nav">
+  <a href="home.html"><img src="logo.svg"></a>
+  <nav>
     <a href="home.html">Home</a>
-    <a href="about.html">About</a>
     <a href="services.html">Services</a>
     <a href="contact.html">Contact</a>
-    <a href="getquote.html" class="cta">Get a Quote</a>
+    <a href="getquote.html">Get a Quote</a>
   </nav>
 </header>
 
-<section class="page">
-  <h1>Built Around Convenience</h1>
-
+<section class="section">
+  <h1>About Tazs Tech Town</h1>
   <p>
-    Tazs Tech Town was created to remove the biggest frustration in tech repair:
-    wasting time. No storefronts. No long waits. No juggling your schedule.
+    Tazs Tech Town is built around one idea — tech repair should be convenient.
+    We bring professional repairs directly to your location or handle pickup and drop-off
+    so you never have to waste time waiting in a shop.
   </p>
-
-  <p>
-    We operate as a <strong>fully mobile repair service</strong>, traveling directly
-    to customers throughout St. Marys, GA and surrounding areas. Most repairs
-    are completed on-site. When advanced work is required, we securely pick up,
-    repair, and return your device.
-  </p>
-
-  <div class="features">
-    <div class="feature">
-      <i class="fas fa-truck-fast"></i>
-      <h3>We Come To You</h3>
-      <p>Your home, office, or business — we repair where it’s convenient.</p>
-    </div>
-    <div class="feature">
-      <i class="fas fa-screwdriver-wrench"></i>
-      <h3>Professional Repairs</h3>
-      <p>Experienced technicians using quality parts and proven methods.</p>
-    </div>
-    <div class="feature">
-      <i class="fas fa-shield-halved"></i>
-      <h3>Safe & Secure</h3>
-      <p>Devices are handled carefully with full transparency.</p>
-    </div>
-  </div>
 </section>
-
-<footer>
-  © 2026 Tazs Tech Town • Mobile Technology Repair
-</footer>
-
-<script>
-function toggleMenu(){
-  document.getElementById('nav').classList.toggle('show');
-}
-</script>
 
 </body>
 </html>
