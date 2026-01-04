@@ -5,55 +5,68 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Tazs Tech Town | Mobile Tech Repair</title>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
+<!-- Icons -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-body{font-family:Inter, sans-serif;background:#000;color:#fff}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Inter,sans-serif;background:#000;color:#fff;line-height:1.6}
 a{text-decoration:none;color:inherit}
 
 nav{
 background:#8F00B6;
+padding:16px 40px;
 display:flex;
-align-items:center;
 justify-content:space-between;
-padding:15px 30px;
-}
-nav img{height:40px}
-nav ul{list-style:none;display:flex;gap:20px}
-nav ul li a{font-weight:500}
-nav .cta{background:#000;padding:10px 18px;border-radius:6px}
-
-.hero{
-height:85vh;
-display:flex;
 align-items:center;
-padding:0 10%;
-background:linear-gradient(rgba(0,0,0,.7),rgba(0,0,0,.7)),url("hero1.jpg") center/cover;
 }
-.hero-content{
-max-width:600px;
-text-align:left;
-}
-.hero h1{
-font-family:Poppins;
-font-size:3rem;
-margin-bottom:15px;
-}
-.hero p{font-size:1.1rem;margin-bottom:25px}
-.hero a{
+nav img{height:42px}
+nav ul{list-style:none;display:flex;gap:24px;align-items:center}
+nav ul a{font-weight:500}
+nav .cta{
 background:#000;
-padding:14px 24px;
+padding:10px 20px;
 border-radius:6px;
 font-weight:600;
 }
 
+.hero{
+height:90vh;
+display:flex;
+align-items:center;
+background:
+linear-gradient(rgba(0,0,0,.65),rgba(0,0,0,.85)),
+url("hero1.jpg") center/cover;
+padding:0 10%;
+}
+.hero-content{
+max-width:620px;
+text-align:left;
+}
+.hero h1{
+font-family:Poppins;
+font-size:3.2rem;
+margin-bottom:18px;
+}
+.hero p{
+font-size:1.15rem;
+margin-bottom:30px;
+}
+.hero .buttons a{
+display:inline-block;
+margin-right:15px;
+padding:14px 28px;
+border-radius:8px;
+font-weight:700;
+}
+.hero .primary{background:#8F00B6;color:#000}
+.hero .secondary{background:#000;border:1px solid #8F00B6}
+
 .section{
-padding:80px 10%;
+padding:90px 10%;
 text-align:center;
 }
 .section.purple{
@@ -62,44 +75,67 @@ color:#000;
 }
 .section h2{
 font-family:Poppins;
-font-size:2.2rem;
+font-size:2.4rem;
 margin-bottom:40px;
 }
 
 .cards{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-gap:30px;
+grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+gap:32px;
 }
 .card{
 background:#111;
-padding:30px;
-border-radius:12px;
+padding:34px;
+border-radius:14px;
+transition:.3s;
+}
+.card:hover{
+transform:translateY(-6px);
+box-shadow:0 18px 40px rgba(0,0,0,.6);
 }
 .card i{
-font-size:2rem;
+font-size:2.2rem;
 color:#8F00B6;
-margin-bottom:15px;
+margin-bottom:18px;
 }
+
+.glow{
+position:relative;
+overflow:hidden;
+}
+.glow::before{
+content:"";
+position:absolute;
+inset:-120px;
+background:
+radial-gradient(circle at 20% 20%, rgba(143,0,182,.25), transparent 40%),
+radial-gradient(circle at 80% 80%, rgba(143,0,182,.18), transparent 45%);
+z-index:0;
+}
+.glow>*{position:relative;z-index:1}
 
 .cta-section{
 background:#111;
-padding:80px 10%;
+padding:90px 10%;
 text-align:center;
 }
 .cta-section a{
 background:#8F00B6;
 color:#000;
-padding:16px 28px;
-border-radius:8px;
-font-weight:700;
+padding:18px 34px;
+border-radius:10px;
+font-weight:800;
+display:inline-block;
+margin-top:25px;
 }
 
 footer{
 background:#000;
-padding:30px;
+padding:40px;
 text-align:center;
 font-size:.9rem;
+opacity:.8;
 }
 </style>
 </head>
@@ -120,30 +156,41 @@ font-size:.9rem;
 <section class="hero">
 <div class="hero-content">
 <h1>Mobile Tech Repair<br>That Comes To You</h1>
-<p>Phones, tablets, computers & consoles repaired on-site or pickup & return.</p>
-<a href="getquote.html">Get a Free Quote</a>
+<p>Phones, tablets, computers, and game consoles repaired on-site or with convenient pickup and drop-off.</p>
+<div class="buttons">
+<a class="primary" href="getquote.html">Get a Free Quote</a>
+<a class="secondary" href="services.html">View Services</a>
+</div>
 </div>
 </section>
 
-<section class="section purple">
+<section class="section purple glow">
 <h2>What We Fix</h2>
 <div class="cards">
-<div class="card"><i class="fa-solid fa-mobile-screen"></i><h3>Phones</h3></div>
+<div class="card"><i class="fa-solid fa-mobile-screen"></i><h3>Smartphones</h3></div>
 <div class="card"><i class="fa-solid fa-tablet"></i><h3>Tablets</h3></div>
 <div class="card"><i class="fa-solid fa-laptop"></i><h3>Computers</h3></div>
 <div class="card"><i class="fa-solid fa-gamepad"></i><h3>Game Consoles</h3></div>
 </div>
 </section>
 
+<section class="section glow">
+<h2>How It Works</h2>
+<div class="cards">
+<div class="card"><i class="fa-solid fa-clipboard-list"></i><h3>Request a Quote</h3><p>Tell us about your device and issue.</p></div>
+<div class="card"><i class="fa-solid fa-truck-fast"></i><h3>We Come To You</h3><p>On-site repair or pickup & return.</p></div>
+<div class="card"><i class="fa-solid fa-check-circle"></i><h3>Fixed Fast</h3><p>Most repairs completed same day.</p></div>
+</div>
+</section>
+
 <section class="cta-section">
-<h2>Need a Repair Fast?</h2>
-<p>Serving St. Marys, GA & surrounding areas.</p>
-<br>
+<h2>Serving St. Marys, GA & Surrounding Areas</h2>
+<p>No storefront. No waiting rooms. Just reliable mobile repair.</p>
 <a href="getquote.html">Request Your Quote</a>
 </section>
 
 <footer>
-© 2026 Tazs Tech Town
+© 2026 Tazs Tech Town • Mobile Technology Repair
 </footer>
 
 </body>
