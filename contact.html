@@ -1,39 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Contact | Tazs Tech Town</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact | Tazs Tech Town</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Inter:wght@300;400&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+body{margin:0;font-family:'Inter';background:#000;color:#fff}
+header{display:flex;justify-content:space-between;align-items:center;padding:16px 28px;background:#000;position:sticky;top:0}
+.logo{font-family:'Poppins';font-weight:700;font-size:1.6rem;color:#8F00B6}
+nav{display:flex;gap:20px}
+nav a{color:#fff;text-decoration:none;font-family:'Poppins'}
+nav a.cta{background:#8F00B6;padding:8px 16px;border-radius:6px}
+.menu-toggle{display:none;font-size:1.6rem;cursor:pointer}
+.page{padding:90px 10%;max-width:900px;margin:auto;text-align:center}
+h1{font-family:'Poppins';font-size:2.6rem;color:#8F00B6}
+.info{margin-top:40px;font-size:1.1rem}
+footer{text-align:center;padding:25px;border-top:1px solid #222}
+@media(max-width:900px){
+  nav{position:absolute;top:70px;right:0;background:#000;flex-direction:column;width:220px;padding:20px;display:none}
+  nav.show{display:flex}
+  .menu-toggle{display:block}
+}
+</style>
 </head>
+
 <body>
 
 <header>
   <div class="logo">Tazs Tech Town</div>
-  <nav>
+  <div class="menu-toggle" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
+  <nav id="nav">
     <a href="home.html">Home</a>
     <a href="about.html">About</a>
     <a href="services.html">Services</a>
-    <a href="contact.html" class="active">Contact</a>
-    <a class="cta" href="getquote.html">Get a Quote</a>
+    <a href="contact.html">Contact</a>
+    <a href="getquote.html" class="cta">Get a Quote</a>
   </nav>
 </header>
 
 <section class="page">
-  <h1>Contact Us</h1>
+  <h1>Let’s Fix Your Tech</h1>
+
   <p>
-    Have a question or need help fast?  
-    Reach out and we’ll come to you.
+    Need fast, reliable mobile repair?  
+    We proudly serve St. Marys, GA and surrounding areas.
   </p>
 
-  <p><strong>Service Area:</strong> St. Marys, GA & surrounding areas</p>
+  <div class="info">
+    <p><i class="fas fa-location-dot"></i> Mobile service — we come to you</p>
+    <p><i class="fas fa-clock"></i> Flexible scheduling</p>
+    <p><i class="fas fa-wrench"></i> On-site or pickup & return repairs</p>
+  </div>
 </section>
 
 <footer>
-  <p>Fast • Mobile • Reliable</p>
+  We Come To You • Mobile Technology Repair
 </footer>
+
+<script>
+function toggleMenu(){
+  document.getElementById('nav').classList.toggle('show');
+}
+</script>
 
 </body>
 </html>
