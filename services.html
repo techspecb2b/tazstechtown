@@ -5,12 +5,16 @@
 <title>Services | Tazs Tech Town</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 <style>
 body{margin:0;font-family:Inter;background:#000;color:#fff}
 header{background:#8F00B6;padding:14px 28px;display:flex;justify-content:space-between}
 header img{height:42px}
-nav a{color:#fff;margin-left:20px}
+nav a{margin-left:20px}
 .section{padding:90px 10%;text-align:center}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:30px;margin-top:50px}
+.card{background:#111;padding:35px;border-radius:10px}
+.card i{font-size:34px;color:#8F00B6;margin-bottom:15px}
 </style>
 </head>
 <body>
@@ -26,8 +30,15 @@ nav a{color:#fff;margin-left:20px}
 </header>
 
 <section class="section">
-  <h1>Our Repair Services</h1>
-  <p>Phones, tablets, computers, and consoles — repaired on your schedule.</p>
+  <h1>Our Services</h1>
+  <p>Professional mobile repairs done on your schedule.</p>
+
+  <div class="cards">
+    <div class="card"><i class="fa-solid fa-mobile-screen"></i><h3>Phone Repair</h3></div>
+    <div class="card"><i class="fa-solid fa-tablet"></i><h3>Tablet Repair</h3></div>
+    <div class="card"><i class="fa-solid fa-laptop"></i><h3>Computer Repair</h3></div>
+    <div class="card"><i class="fa-solid fa-gamepad"></i><h3>Console Repair</h3></div>
+  </div>
 </section>
 
 </body>
