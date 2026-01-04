@@ -2,246 +2,60 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<title>Tazs Tech Town | Mobile Tech Repair</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tazs Tech Town | Mobile Tech Repair in St. Marys, GA</title>
 
-<!-- Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
-
-<!-- Icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
 <style>
-:root{
-  --purple:#8F00B6;
-  --black:#000;
-  --dark:#0b0b0b;
-  --white:#fff;
-}
+body{margin:0;font-family:Inter;background:#000;color:#fff}
+h1,h2,h3{font-family:Poppins}
+a{text-decoration:none}
 
-*{box-sizing:border-box}
-
-body{
-  margin:0;
-  font-family:'Inter',sans-serif;
-  background:#000;
-  color:#fff;
-}
-
-/* HEADER */
 header{
-  position:sticky;
-  top:0;
-  z-index:1000;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:16px 28px;
-  background:#000;
+  position:sticky;top:0;z-index:1000;
+  background:#8F00B6;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:14px 28px;
 }
-
-.logo{
-  font-family:'Poppins';
-  font-size:1.6rem;
-  font-weight:700;
-  color:var(--purple);
-}
-
-nav{
-  display:flex;
-  gap:22px;
-}
-
-nav a{
-  color:#fff;
-  text-decoration:none;
-  font-family:'Poppins';
-  font-weight:500;
-}
-
+header img{height:42px}
+nav a{color:#fff;margin-left:22px;font-weight:500}
 nav a.cta{
-  background:var(--purple);
-  padding:10px 18px;
-  border-radius:8px;
-  box-shadow:0 0 20px rgba(143,0,182,.5);
+  background:#000;padding:10px 18px;border-radius:6px;
+  box-shadow:0 0 15px rgba(0,0,0,.6)
 }
 
-.menu-toggle{
-  display:none;
-  font-size:1.6rem;
-  cursor:pointer;
-}
-
-/* HERO */
 .hero{
-  position:relative;
-  height:85vh;
-  overflow:hidden;
+  height:85vh;position:relative;
+  background-size:cover;background-position:center;
+  display:flex;align-items:center;justify-content:center;
 }
-
-.slide{
-  position:absolute;
-  inset:0;
-  background-size:cover;
-  background-position:center;
-  opacity:0;
-  transition:opacity 1s ease;
-}
-
-.slide.active{opacity:1}
-
 .hero-overlay{
-  position:absolute;
-  inset:0;
-  background:rgba(0,0,0,.55);
+  position:absolute;inset:0;background:rgba(0,0,0,.6)
 }
-
-.hero-content{
-  position:relative;
-  z-index:2;
-  height:100%;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  padding:0 8%;
-  max-width:700px;
-}
-
-.hero-content h1{
-  font-family:'Poppins';
-  font-size:3.2rem;
-  margin-bottom:15px;
-}
-
-.hero-content p{
-  font-size:1.2rem;
-  line-height:1.6;
-  margin-bottom:30px;
-}
-
-.hero-buttons{
-  display:flex;
-  gap:18px;
-}
-
-.hero-buttons a{
-  display:inline-block;
-  padding:14px 26px;
-  border-radius:10px;
-  font-family:'Poppins';
-  text-decoration:none;
-  font-weight:600;
-}
-
+.hero-content{position:relative;text-align:center;max-width:800px}
+.hero-content h1{font-size:3rem}
 .primary-btn{
-  background:var(--purple);
-  color:#fff;
-  box-shadow:0 0 25px rgba(143,0,182,.6);
+  display:inline-block;margin-top:30px;
+  background:#000;color:#fff;
+  padding:14px 32px;border-radius:6px;
+  box-shadow:0 0 20px rgba(143,0,182,.8)
 }
 
-.secondary-btn{
-  border:2px solid #fff;
-  color:#fff;
-}
-
-/* SECTIONS */
-.section{
-  padding:90px 10%;
-}
-
-.section.dark{
-  background:var(--dark);
-}
-
-.section h2{
-  font-family:'Poppins';
-  font-size:2.5rem;
-  color:var(--purple);
-  text-align:center;
-  margin-bottom:20px;
-}
-
-.section p{
-  max-width:850px;
-  margin:0 auto;
-  text-align:center;
-  font-size:1.1rem;
-  line-height:1.7;
-}
-
-/* CARDS */
+.section{padding:90px 10%;text-align:center}
+.purple{background:#8F00B6;color:#000}
 .cards{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-  gap:30px;
-  margin-top:60px;
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:30px;margin-top:50px
 }
-
 .card{
-  background:#000;
-  padding:35px;
-  border-radius:16px;
-  text-align:center;
-  transition:transform .2s, box-shadow .2s;
+  background:#111;padding:35px;border-radius:10px
 }
+.card i{font-size:36px;color:#8F00B6;margin-bottom:15px}
 
-.card i{
-  font-size:2.6rem;
-  color:var(--purple);
-  margin-bottom:15px;
-}
-
-.card h3{
-  font-family:'Poppins';
-  margin-bottom:10px;
-}
-
-.card:hover{
-  transform:translateY(-6px);
-  box-shadow:0 0 35px rgba(143,0,182,.4);
-}
-
-/* PROCESS */
-.process{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:30px;
-  margin-top:60px;
-}
-
-.step{
-  text-align:center;
-}
-
-.step i{
-  font-size:2.4rem;
-  color:var(--purple);
-  margin-bottom:15px;
-}
-
-/* FOOTER */
 footer{
-  padding:30px;
-  text-align:center;
-  border-top:1px solid #222;
-  font-size:.9rem;
-}
-
-/* MOBILE */
-@media(max-width:900px){
-  nav{
-    position:absolute;
-    top:70px;
-    right:0;
-    background:#000;
-    flex-direction:column;
-    width:230px;
-    padding:20px;
-    display:none;
-  }
-  nav.show{display:flex}
-  .menu-toggle{display:block}
-  .hero-content h1{font-size:2.4rem}
+  background:#000;padding:40px;text-align:center;font-size:14px
 }
 </style>
 </head>
@@ -249,9 +63,8 @@ footer{
 <body>
 
 <header>
-  <div class="logo">Tazs Tech Town</div>
-  <div class="menu-toggle" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
-  <nav id="nav">
+  <a href="home.html"><img src="logo.svg" alt="Tazs Tech Town"></a>
+  <nav>
     <a href="home.html">Home</a>
     <a href="about.html">About</a>
     <a href="services.html">Services</a>
@@ -260,98 +73,46 @@ footer{
   </nav>
 </header>
 
-<section class="hero">
-  <div class="slide active" style="background-image:url('images/hero1.jpg')"></div>
-  <div class="slide" style="background-image:url('images/hero2.jpg')"></div>
-  <div class="slide" style="background-image:url('images/hero3.jpg')"></div>
+<section class="hero" id="hero">
   <div class="hero-overlay"></div>
-
   <div class="hero-content">
     <h1>Mobile Tech Repair That Comes To You</h1>
-    <p>
-      Phones, tablets, computers, and game consoles repaired on-site or
-      securely picked up and returned. Proudly serving St. Marys, GA
-      and surrounding areas.
-    </p>
-    <div class="hero-buttons">
-      <a href="getquote.html" class="primary-btn">Get a Free Quote</a>
-      <a href="services.html" class="secondary-btn">View Services</a>
-    </div>
+    <p>Phones, tablets, computers & game consoles — repaired on the spot or picked up and returned.</p>
+    <a href="getquote.html" class="primary-btn">Get a Free Quote</a>
+  </div>
+</section>
+
+<section class="section purple">
+  <h2>Fast. Local. Convenient.</h2>
+  <p>We proudly serve St. Marys, GA and surrounding areas with professional mobile repair services.</p>
+</section>
+
+<section class="section">
+  <h2>What We Fix</h2>
+  <div class="cards">
+    <div class="card"><i class="fa-solid fa-mobile-screen"></i><h3>Smartphones</h3></div>
+    <div class="card"><i class="fa-solid fa-tablet"></i><h3>Tablets</h3></div>
+    <div class="card"><i class="fa-solid fa-laptop"></i><h3>Computers</h3></div>
+    <div class="card"><i class="fa-solid fa-gamepad"></i><h3>Game Consoles</h3></div>
   </div>
 </section>
 
 <section class="section">
-  <h2>What We Repair</h2>
-
-  <div class="cards">
-    <div class="card">
-      <i class="fas fa-mobile-screen"></i>
-      <h3>Smartphones</h3>
-      <p>Screens, batteries, charging ports, cameras, and more.</p>
-    </div>
-    <div class="card">
-      <i class="fas fa-tablet-screen-button"></i>
-      <h3>Tablets</h3>
-      <p>iPads and Android tablets repaired fast and professionally.</p>
-    </div>
-    <div class="card">
-      <i class="fas fa-laptop"></i>
-      <h3>Computers</h3>
-      <p>Hardware issues, software problems, and performance fixes.</p>
-    </div>
-    <div class="card">
-      <i class="fas fa-gamepad"></i>
-      <h3>Game Consoles</h3>
-      <p>PlayStation, Xbox, and Nintendo console repairs.</p>
-    </div>
-  </div>
-</section>
-
-<section class="section dark">
-  <h2>How It Works</h2>
-
-  <div class="process">
-    <div class="step">
-      <i class="fas fa-clipboard-list"></i>
-      <h3>Request a Quote</h3>
-      <p>Tell us what device needs repair.</p>
-    </div>
-    <div class="step">
-      <i class="fas fa-truck-fast"></i>
-      <h3>We Come To You</h3>
-      <p>On-site repair or secure pickup.</p>
-    </div>
-    <div class="step">
-      <i class="fas fa-wrench"></i>
-      <h3>Fast Repair</h3>
-      <p>Most repairs completed same day.</p>
-    </div>
-    <div class="step">
-      <i class="fas fa-check-circle"></i>
-      <h3>Device Ready</h3>
-      <p>Tested, repaired, and returned.</p>
-    </div>
-  </div>
+  <h2>Ready to Fix Your Device?</h2>
+  <a href="getquote.html" class="primary-btn">Start Your Quote</a>
 </section>
 
 <footer>
-  © 2026 Tazs Tech Town • Mobile Technology Repair
+  © 2026 Tazs Tech Town — Mobile Repair You Can Trust
 </footer>
 
 <script>
-/* Slider */
-let slides=document.querySelectorAll('.slide');
-let index=0;
+const heroImages=["hero1.jpg","hero2.jpg","hero3.jpg"];
+let i=0;
 setInterval(()=>{
-  slides[index].classList.remove('active');
-  index=(index+1)%slides.length;
-  slides[index].classList.add('active');
-},5000);
-
-/* Mobile Menu */
-function toggleMenu(){
-  document.getElementById('nav').classList.toggle('show');
-}
+  document.getElementById("hero").style.backgroundImage=`url(${heroImages[i]})`;
+  i=(i+1)%heroImages.length;
+},4000);
 </script>
 
 </body>
