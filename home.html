@@ -5,13 +5,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Tazs Tech Town | Mobile Tech Repair</title>
 
-<!-- Google Fonts -->
+<!-- Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+<!-- Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
 <style>
 :root {
   --purple:#8F00B6;
   --black:#000;
+  --dark:#0a0a0a;
   --white:#fff;
 }
 
@@ -20,42 +24,56 @@
 body {
   margin:0;
   font-family:'Inter', sans-serif;
-  background:#000;
-  color:#fff;
+  background:var(--black);
+  color:var(--white);
 }
 
+/* HEADER */
 header {
   display:flex;
   justify-content:space-between;
   align-items:center;
   padding:16px 28px;
+  position:sticky;
+  top:0;
   background:#000;
+  z-index:1000;
 }
 
 .logo {
-  font-family:'Poppins', sans-serif;
-  font-size:1.5rem;
+  font-family:'Poppins';
+  font-size:1.6rem;
   font-weight:700;
   color:var(--purple);
+}
+
+nav {
+  display:flex;
+  gap:20px;
 }
 
 nav a {
   color:#fff;
   text-decoration:none;
-  margin-left:20px;
-  font-family:'Poppins', sans-serif;
-  font-weight:500;
+  font-family:'Poppins';
 }
 
 nav a.cta {
   background:var(--purple);
-  padding:8px 14px;
+  padding:8px 16px;
   border-radius:6px;
 }
 
+.menu-toggle {
+  display:none;
+  font-size:1.6rem;
+  cursor:pointer;
+}
+
+/* HERO SLIDER */
 .hero {
   position:relative;
-  height:75vh;
+  height:80vh;
   overflow:hidden;
 }
 
@@ -73,48 +91,116 @@ nav a.cta {
 .hero-overlay {
   position:absolute;
   inset:0;
-  background:rgba(0,0,0,0.55);
+  background:rgba(0,0,0,.6);
 }
 
 .hero-content {
   position:absolute;
-  bottom:25%;
+  bottom:30%;
   left:8%;
-  max-width:500px;
+  max-width:520px;
 }
 
 .hero-content h1 {
-  font-family:'Poppins', sans-serif;
-  font-size:2.8rem;
-  margin-bottom:10px;
+  font-family:'Poppins';
+  font-size:3rem;
+  margin-bottom:12px;
 }
 
 .hero-content p {
-  font-size:1.1rem;
+  font-size:1.15rem;
+  margin-bottom:20px;
 }
 
+.hero-content a {
+  display:inline-block;
+  background:var(--purple);
+  padding:12px 22px;
+  border-radius:8px;
+  color:#fff;
+  text-decoration:none;
+  font-family:'Poppins';
+  transition:transform .2s, box-shadow .2s;
+}
+
+.hero-content a:hover {
+  transform:translateY(-2px);
+  box-shadow:0 0 20px rgba(143,0,182,.6);
+}
+
+/* SECTIONS */
 .section {
-  padding:70px 10%;
+  padding:80px 10%;
   text-align:center;
 }
 
 .section h2 {
-  font-family:'Poppins', sans-serif;
-  font-size:2.2rem;
+  font-family:'Poppins';
+  font-size:2.4rem;
   color:var(--purple);
+  margin-bottom:20px;
 }
 
 .section p {
-  max-width:700px;
-  margin:20px auto 0;
+  max-width:800px;
+  margin:auto;
   font-size:1.05rem;
+  line-height:1.7;
 }
 
+/* SERVICE CARDS */
+.cards {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:25px;
+  margin-top:50px;
+}
+
+.card {
+  background:var(--dark);
+  padding:30px;
+  border-radius:14px;
+  transition:transform .2s, box-shadow .2s;
+}
+
+.card i {
+  font-size:2.4rem;
+  color:var(--purple);
+  margin-bottom:15px;
+}
+
+.card h3 {
+  font-family:'Poppins';
+  margin-bottom:10px;
+}
+
+.card:hover {
+  transform:translateY(-5px);
+  box-shadow:0 0 30px rgba(143,0,182,.35);
+}
+
+/* FOOTER */
 footer {
+  padding:25px;
   text-align:center;
-  padding:20px;
   border-top:1px solid #222;
   font-size:.9rem;
+}
+
+/* MOBILE */
+@media(max-width:900px){
+  nav {
+    position:absolute;
+    top:70px;
+    right:0;
+    background:#000;
+    flex-direction:column;
+    width:220px;
+    padding:20px;
+    display:none;
+  }
+  nav.show { display:flex; }
+  .menu-toggle { display:block; }
 }
 </style>
 </head>
@@ -123,15 +209,9 @@ footer {
 
 <header>
   <div class="logo">Tazs Tech Town</div>
-  <nav>
+  <div class="menu-toggle" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
+  <nav id="nav">
     <a href="home.html">Home</a>
     <a href="about.html">About</a>
     <a href="services.html">Services</a>
-    <a href="contact.html">Contact</a>
-    <a href="getquote.html" class="cta">Get a Quote</a>
-  </nav>
-</header>
-
-<section class="hero">
-  <div class="slide active" style="background-image:url('images/hero1.jpg')"></div>
-  <div class="slide" style="background-image
+    <a href="conta
