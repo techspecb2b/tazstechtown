@@ -128,6 +128,85 @@
       box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
     }
 
+    /* Mobile Menu */
+    .mobile-menu-btn {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+      z-index: 1001;
+    }
+
+    .mobile-menu-btn span {
+      width: 28px;
+      height: 3px;
+      background: var(--white);
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+
+    .mobile-menu-btn.active span:nth-child(1) {
+      transform: rotate(45deg) translate(8px, 8px);
+    }
+
+    .mobile-menu-btn.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .mobile-menu-btn.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(7px, -7px);
+    }
+
+    .mobile-menu {
+      display: none;
+      position: fixed;
+      top: 76px;
+      left: 0;
+      right: 0;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+      padding: 20px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+      z-index: 999;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+
+    .mobile-menu.active {
+      display: block;
+      max-height: 500px;
+    }
+
+    .mobile-menu ul {
+      flex-direction: column;
+      gap: 0;
+      width: 100%;
+    }
+
+    .mobile-menu ul li {
+      width: 100%;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .mobile-menu ul li:last-child {
+      border-bottom: none;
+    }
+
+    .mobile-menu ul li a {
+      display: block;
+      padding: 16px 20px;
+      font-size: 1.1rem;
+    }
+
+    .mobile-menu .nav-cta {
+      margin-top: 10px;
+      display: block;
+      text-align: center;
+    }
+
     /* ================= HERO ================= */
     .hero {
       position: relative;
@@ -657,6 +736,109 @@
       }
 
       nav ul {
+        display: none;
+      }
+
+      .mobile-menu-btn {
+        display: flex;
+      }
+
+      .hero {
+        min-height: auto;
+        padding: 60px 0 40px;
+      }
+
+      .hero-content {
+        padding: 0 20px;
+        max-width: 100%;
+      }
+
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+
+      .hero p {
+        font-size: 1rem;
+      }
+
+      .hero-image {
+        position: relative;
+        width: 100%;
+        height: 350px;
+        margin-top: 40px;
+        justify-content: center;
+      }
+
+      .hero-image img {
+        object-position: center;
+      }
+
+      .hero-fade {
+        background: linear-gradient(to bottom, rgba(10, 10, 10, 0.7) 0%, rgba(10, 10, 10, 0) 100%);
+      }
+
+      .trust-container {
+        gap: 20px;
+        flex-direction: column;
+      }
+
+      .services,
+      .why-choose,
+      .cta-section {
+        padding: 60px 20px;
+      }
+
+      .section-header h2,
+      .cta-container h2 {
+        font-size: 2rem;
+      }
+
+      .btn {
+        padding: 14px 24px;
+        font-size: 0.9rem;
+      }
+
+      .footer-container {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero h1 {
+        font-size: 1.8rem;
+      }
+
+      .hero-badge {
+        font-size: 0.75rem;
+        padding: 6px 14px;
+      }
+
+      .hero-buttons {
+        flex-direction: column;
+        width: 100%;
+      }
+
+      .btn {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .why-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-container {
+        padding: 16px 20px;
+      }
+
+      nav ul {
         gap: 20px;
         font-size: 0.9rem;
       }
@@ -751,8 +933,43 @@
         <li><a class="nav-cta" href="getquote.html">Get a Quote</a></li>
       </ul>
     </nav>
+    <button class="mobile-menu-btn" aria-label="Toggle menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+  <div class="mobile-menu">
+    <ul>
+      <li><a href="home.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a class="nav-cta" href="getquote.html">Get a Quote</a></li>
+    </ul>
   </div>
 </header>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const menuBtn = document.querySelector('.mobile-menu-btn');
+  const mobileMenu = document.querySelector('.mobile-menu');
+  
+  menuBtn.addEventListener('click', function() {
+    menuBtn.classList.toggle('active');
+    mobileMenu.classList.toggle('active');
+  });
+
+  // Close menu when clicking on a link
+  const mobileLinks = mobileMenu.querySelectorAll('a');
+  mobileLinks.forEach(link => {
+    link.addEventListener('click', function() {
+      menuBtn.classList.remove('active');
+      mobileMenu.classList.remove('active');
+    });
+  });
+});
+</script>
 
 <section class="hero">
   <div class="hero-content">
@@ -946,8 +1163,4 @@
       <h3>Contact</h3>
       <p><i class="fas fa-map-marker-alt"></i> St. Marys, GA</p>
       <p><i class="fas fa-phone"></i> (912) 467-2108</p>
-      <p><i class="fas fa-envelope"></i> chaddhamsmith128@gmail.com</p>
-    </div>
-  </div>
-
-  <
+      <p><i class="fas fa-envelope"></i> <a href="/cdn-cgi/l/email-protection" class="__cf_email
