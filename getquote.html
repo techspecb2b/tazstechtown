@@ -1,53 +1,778 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Get a Quote | Tazs Tech Town</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-<style>
-body{margin:0;font-family:Inter;background:#000;color:#fff}
-nav{background:#8F00B6;padding:15px 30px;display:flex;justify-content:space-between;align-items:center}
-nav img{height:40px}
-nav ul{list-style:none;display:flex;gap:20px}
-nav .cta{background:#000;padding:10px 18px;border-radius:6px}
-.section{padding:80px 10%;text-align:center}
-form{max-width:600px;margin:auto}
-select,input,textarea{width:100%;padding:14px;margin-bottom:15px;border-radius:6px;border:none}
-button{background:#8F00B6;color:#000;padding:16px;border:none;border-radius:8px;font-weight:700}
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Get a Quote | Taz's Tech Town</title>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  
+  <style>
+    :root {
+      --primary: #8F00B6;
+      --primary-dark: #6B008A;
+      --primary-light: #A820D1;
+      --black: #0A0A0A;
+      --white: #FFFFFF;
+      --gray-100: #F3F4F6;
+      --gray-200: #E5E7EB;
+      --gray-300: #D1D5DB;
+      --gray-700: #374151;
+      --gray-800: #1F2937;
+      --gray-900: #111827;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Work Sans', sans-serif;
+      background-color: var(--black);
+      color: var(--white);
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+      transition: all 0.3s ease;
+    }
+
+    /* ================= NAVBAR ================= */
+    header {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+      padding: 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 20px rgba(143, 0, 182, 0.3);
+    }
+
+    .nav-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 40px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 800;
+      font-size: 1.4rem;
+      color: var(--white);
+      transition: transform 0.3s ease;
+    }
+
+    .logo:hover {
+      transform: scale(1.05);
+    }
+
+    .logo i {
+      font-size: 1.8rem;
+    }
+
+    nav ul {
+      display: flex;
+      gap: 36px;
+      list-style: none;
+      align-items: center;
+    }
+
+    nav ul li a {
+      font-family: 'Work Sans', sans-serif;
+      font-weight: 500;
+      font-size: 0.95rem;
+      position: relative;
+      padding: 8px 0;
+    }
+
+    nav ul li a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--white);
+      transition: width 0.3s ease;
+    }
+
+    nav ul li a:hover::after {
+      width: 100%;
+    }
+
+    .nav-cta {
+      padding: 12px 24px;
+      background-color: var(--white);
+      color: var(--primary);
+      border-radius: 8px;
+      font-weight: 600;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      transition: all 0.3s ease;
+    }
+
+    .nav-cta:hover {
+      background-color: var(--black);
+      color: var(--white);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+    }
+
+    /* ================= PAGE HERO ================= */
+    .page-hero {
+      background: linear-gradient(135deg, #1a0a1f 0%, #0A0A0A 100%);
+      padding: 80px 40px 60px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .page-hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 800px;
+      height: 800px;
+      background: radial-gradient(circle, rgba(143, 0, 182, 0.15) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+
+    .page-hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .page-badge {
+      display: inline-block;
+      background: rgba(143, 0, 182, 0.15);
+      border: 1px solid rgba(143, 0, 182, 0.3);
+      padding: 8px 20px;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--primary-light);
+      margin-bottom: 20px;
+    }
+
+    .page-hero h1 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 3rem;
+      font-weight: 800;
+      margin-bottom: 16px;
+      background: linear-gradient(135deg, #FFFFFF 0%, #E0E0E0 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .page-hero p {
+      font-size: 1.1rem;
+      color: var(--gray-300);
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    /* ================= QUOTE SECTION ================= */
+    .quote-section {
+      background: var(--black);
+      padding: 80px 40px 100px;
+    }
+
+    .quote-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: start;
+    }
+
+    /* FORM COLUMN */
+    .form-column {
+      background: linear-gradient(135deg, rgba(20, 20, 20, 0.8) 0%, rgba(30, 10, 35, 0.6) 100%);
+      border: 1px solid rgba(143, 0, 182, 0.2);
+      padding: 50px 40px;
+      border-radius: 20px;
+      box-shadow: 0 10px 40px rgba(143, 0, 182, 0.2);
+    }
+
+    .form-header {
+      margin-bottom: 36px;
+    }
+
+    .form-header h2 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: var(--white);
+    }
+
+    .form-header p {
+      color: var(--gray-300);
+      font-size: 0.95rem;
+    }
+
+    .quote-form {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .form-group label {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 600;
+      font-size: 0.9rem;
+      color: var(--white);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .form-group label i {
+      color: var(--primary-light);
+      font-size: 0.9rem;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 14px 18px;
+      background: rgba(0, 0, 0, 0.4);
+      border: 1px solid rgba(143, 0, 182, 0.3);
+      border-radius: 10px;
+      color: var(--white);
+      font-family: 'Work Sans', sans-serif;
+      font-size: 0.95rem;
+      transition: all 0.3s ease;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: var(--primary);
+      background: rgba(0, 0, 0, 0.6);
+      box-shadow: 0 0 0 3px rgba(143, 0, 182, 0.1);
+    }
+
+    .form-group textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      color: var(--gray-300);
+    }
+
+    .form-group select {
+      cursor: pointer;
+    }
+
+    .form-group select option {
+      background: var(--gray-900);
+      color: var(--white);
+    }
+
+    .submit-btn {
+      padding: 16px 32px;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-weight: 700;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 20px rgba(143, 0, 182, 0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .submit-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 30px rgba(143, 0, 182, 0.5);
+    }
+
+    .submit-btn i {
+      font-size: 1rem;
+    }
+
+    /* INFO COLUMN */
+    .info-column {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+
+    .info-header h2 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 2rem;
+      font-weight: 800;
+      margin-bottom: 16px;
+      color: var(--white);
+    }
+
+    .info-header p {
+      color: var(--gray-300);
+      line-height: 1.7;
+      font-size: 1rem;
+    }
+
+    .info-card {
+      background: linear-gradient(135deg, rgba(20, 20, 20, 0.8) 0%, rgba(30, 10, 35, 0.6) 100%);
+      border: 1px solid rgba(143, 0, 182, 0.2);
+      padding: 30px;
+      border-radius: 18px;
+      transition: all 0.3s ease;
+    }
+
+    .info-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--primary);
+      box-shadow: 0 8px 30px rgba(143, 0, 182, 0.3);
+    }
+
+    .info-card-header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+
+    .info-icon {
+      width: 50px;
+      height: 50px;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      color: var(--white);
+      flex-shrink: 0;
+    }
+
+    .info-card h3 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--white);
+    }
+
+    .info-card p {
+      color: var(--gray-300);
+      line-height: 1.7;
+      font-size: 0.95rem;
+    }
+
+    .info-card ul {
+      list-style: none;
+      padding: 0;
+      margin-top: 12px;
+    }
+
+    .info-card ul li {
+      color: var(--gray-300);
+      padding: 8px 0;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.9rem;
+    }
+
+    .info-card ul li i {
+      color: var(--primary-light);
+      font-size: 0.8rem;
+    }
+
+    .contact-options {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-top: 20px;
+    }
+
+    .contact-option {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 16px 20px;
+      background: rgba(143, 0, 182, 0.1);
+      border: 1px solid rgba(143, 0, 182, 0.2);
+      border-radius: 12px;
+      transition: all 0.3s ease;
+    }
+
+    .contact-option:hover {
+      background: rgba(143, 0, 182, 0.15);
+      border-color: var(--primary);
+    }
+
+    .contact-option i {
+      color: var(--primary-light);
+      font-size: 1.2rem;
+    }
+
+    .contact-option a {
+      color: var(--white);
+      font-weight: 500;
+    }
+
+    /* ================= FOOTER ================= */
+    footer {
+      background: var(--gray-900);
+      padding: 60px 40px 30px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .footer-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    .footer-section h3 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      color: var(--white);
+    }
+
+    .footer-section p,
+    .footer-section a {
+      color: var(--gray-300);
+      margin-bottom: 12px;
+      display: block;
+      line-height: 1.6;
+    }
+
+    .footer-section a:hover {
+      color: var(--primary-light);
+    }
+
+    .social-links {
+      display: flex;
+      gap: 16px;
+      margin-top: 20px;
+    }
+
+    .social-links a {
+      width: 40px;
+      height: 40px;
+      background: rgba(143, 0, 182, 0.15);
+      border: 1px solid rgba(143, 0, 182, 0.3);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary-light);
+      transition: all 0.3s ease;
+    }
+
+    .social-links a:hover {
+      background: var(--primary);
+      border-color: var(--primary);
+      color: var(--white);
+      transform: translateY(-3px);
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding-top: 30px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      color: var(--gray-300);
+      font-size: 0.9rem;
+    }
+
+    /* ================= RESPONSIVE ================= */
+    @media (max-width: 768px) {
+      .nav-container {
+        padding: 16px 20px;
+      }
+
+      nav ul {
+        display: none;
+      }
+
+      .page-hero {
+        padding: 60px 20px 40px;
+      }
+
+      .page-hero h1 {
+        font-size: 2rem;
+      }
+
+      .quote-section {
+        padding: 60px 20px;
+      }
+
+      .quote-container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .form-column {
+        padding: 35px 25px;
+      }
+
+      .footer-container {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+    }
+  </style>
 </head>
+
 <body>
 
-<nav>
-<a href="home.html"><img src="logo.svg"></a>
-<ul>
-<li><a href="home.html">Home</a></li>
-<li><a href="about.html">About</a></li>
-<li><a href="services.html">Services</a></li>
-<li><a href="contact.html">Contact</a></li>
-<li><a class="cta" href="getquote.html">Get a Quote</a></li>
-</ul>
-</nav>
+<header>
+  <div class="nav-container">
+    <a href="home.html" class="logo">
+      <i class="fas fa-bolt"></i>
+      <span>Taz's Tech Town</span>
+    </a>
+    <nav>
+      <ul>
+        <li><a href="home.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a class="nav-cta" href="getquote.html">Get a Quote</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
 
-<section class="section">
-<h1>Get a Repair Quote</h1>
-
-<form>
-<select>
-<option>Phone Repair</option>
-<option>Tablet Repair</option>
-<option>Computer Repair</option>
-<option>Console Repair</option>
-</select>
-
-<input placeholder="Device Model">
-<textarea placeholder="Describe the issue"></textarea>
-
-<button>Request Quote</button>
-</form>
+<section class="page-hero">
+  <div class="page-hero-content">
+    <span class="page-badge">Free Quote</span>
+    <h1>Get Your Repair Quote</h1>
+    <p>Tell us about your device and issue, and we'll provide a fast, free quote with no obligations.</p>
+  </div>
 </section>
+
+<section class="quote-section">
+  <div class="quote-container">
+    
+    <!-- FORM COLUMN -->
+    <div class="form-column">
+      <div class="form-header">
+        <h2>Request Your Quote</h2>
+        <p>Fill out the form below and we'll get back to you within a few hours.</p>
+      </div>
+
+      <form class="quote-form">
+        <div class="form-group">
+          <label for="name">
+            <i class="fas fa-user"></i>
+            Your Name
+          </label>
+          <input type="text" id="name" name="name" placeholder="John Smith" required>
+        </div>
+
+        <div class="form-group">
+          <label for="email">
+            <i class="fas fa-envelope"></i>
+            Email Address
+          </label>
+          <input type="email" id="email" name="email" placeholder="john@example.com" required>
+        </div>
+
+        <div class="form-group">
+          <label for="phone">
+            <i class="fas fa-phone"></i>
+            Phone Number
+          </label>
+          <input type="tel" id="phone" name="phone" placeholder="(123) 456-7890" required>
+        </div>
+
+        <div class="form-group">
+          <label for="device-type">
+            <i class="fas fa-mobile-screen"></i>
+            Device Type
+          </label>
+          <select id="device-type" name="device-type" required>
+            <option value="">Select device type...</option>
+            <option value="phone">Phone</option>
+            <option value="tablet">Tablet</option>
+            <option value="laptop">Laptop</option>
+            <option value="desktop">Desktop</option>
+            <option value="console">Game Console</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="device-model">
+            <i class="fas fa-microchip"></i>
+            Device Model/Brand
+          </label>
+          <input type="text" id="device-model" name="device-model" placeholder="e.g., iPhone 13, Samsung Galaxy S21" required>
+        </div>
+
+        <div class="form-group">
+          <label for="issue">
+            <i class="fas fa-screwdriver-wrench"></i>
+            Describe the Issue
+          </label>
+          <textarea id="issue" name="issue" placeholder="Please describe what's wrong with your device..." required></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="service-type">
+            <i class="fas fa-truck-fast"></i>
+            Service Preference
+          </label>
+          <select id="service-type" name="service-type" required>
+            <option value="">Select service type...</option>
+            <option value="mobile">Mobile Service (We Come to You)</option>
+            <option value="pickup">Pickup & Return</option>
+            <option value="dropoff">Drop Off at Location</option>
+          </select>
+        </div>
+
+        <button type="submit" class="submit-btn">
+          Get My Free Quote
+          <i class="fas fa-arrow-right"></i>
+        </button>
+      </form>
+    </div>
+
+    <!-- INFO COLUMN -->
+    <div class="info-column">
+      <div class="info-header">
+        <h2>What to Expect</h2>
+        <p>We make the repair process as simple and transparent as possible. Here's what happens after you submit your quote request:</p>
+      </div>
+
+      <div class="info-card">
+        <div class="info-card-header">
+          <div class="info-icon">
+            <i class="fas fa-clock"></i>
+          </div>
+          <h3>Fast Response</h3>
+        </div>
+        <p>We'll review your request and send you a detailed quote within 2-4 hours during business hours.</p>
+      </div>
+
+      <div class="info-card">
+        <div class="info-card-header">
+          <div class="info-icon">
+            <i class="fas fa-hand-holding-dollar"></i>
+          </div>
+          <h3>Transparent Pricing</h3>
+        </div>
+        <p>Our quotes include all costs with no hidden fees. You'll know exactly what to expect before we start.</p>
+        <ul>
+          <li><i class="fas fa-check"></i> No diagnostic fees</li>
+          <li><i class="fas fa-check"></i> Parts & labor included</li>
+          <li><i class="fas fa-check"></i> No surprise charges</li>
+        </ul>
+      </div>
+
+      <div class="info-card">
+        <div class="info-card-header">
+          <div class="info-icon">
+            <i class="fas fa-calendar-check"></i>
+          </div>
+          <h3>Easy Scheduling</h3>
+        </div>
+        <p>Once you approve the quote, we'll schedule a convenient time for service at your preferred location.</p>
+      </div>
+
+      <div class="info-card">
+        <div class="info-card-header">
+          <div class="info-icon">
+            <i class="fas fa-phone-volume"></i>
+          </div>
+          <h3>Prefer to Talk?</h3>
+        </div>
+        <p>Give us a call or send an email — we're here to answer any questions you have.</p>
+        <div class="contact-options">
+          <div class="contact-option">
+            <i class="fas fa-phone"></i>
+            <a href="tel:+1234567890">(123) 456-7890</a>
+          </div>
+          <div class="contact-option">
+            <i class="fas fa-envelope"></i>
+            <a href="mailto:info@tazstechtown.com">info@tazstechtown.com</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <div class="footer-container">
+    <div class="footer-section">
+      <h3>Taz's Tech Town</h3>
+      <p>Your trusted mobile tech repair service in St. Marys, GA and surrounding areas.</p>
+      <div class="social-links">
+        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+      </div>
+    </div>
+
+    <div class="footer-section">
+      <h3>Quick Links</h3>
+      <a href="home.html">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="services.html">Services</a>
+      <a href="getquote.html">Get a Quote</a>
+    </div>
+
+    <div class="footer-section">
+      <h3>Services</h3>
+      <a href="services.html">Phone Repair</a>
+      <a href="services.html">Tablet Repair</a>
+      <a href="services.html">Computer Repair</a>
+      <a href="services.html">Console Repair</a>
+    </div>
+
+    <div class="footer-section">
+      <h3>Contact</h3>
+      <p><i class="fas fa-map-marker-alt"></i> St. Marys, GA</p>
+      <p><i class="fas fa-phone"></i> (123) 456-7890</p>
+      <p><i class="fas fa-envelope"></i> info@tazstechtown.com</p>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; 2026 Taz's Tech Town. All rights reserved.</p>
+  </div>
+</footer>
 
 </body>
 </html>
