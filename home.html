@@ -3,19 +3,24 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Taz’s Tech Town | Mobile Tech Repair</title>
-
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-
-  <!-- Icons -->
-  <link href="https://unpkg.com/@phosphor-icons/web@2.0.3/src/regular/style.css" rel="stylesheet">
-
+  <title>Taz's Tech Town | Mobile Tech Repair in St. Marys, GA</title>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  
   <style>
     :root {
-      --purple: #8F00B6;
-      --black: #000000;
-      --white: #ffffff;
+      --primary: #8F00B6;
+      --primary-dark: #6B008A;
+      --primary-light: #A820D1;
+      --black: #0A0A0A;
+      --white: #FFFFFF;
+      --gray-50: #F9FAFB;
+      --gray-100: #F3F4F6;
+      --gray-200: #E5E7EB;
+      --gray-300: #D1D5DB;
+      --gray-700: #374151;
+      --gray-800: #1F2937;
+      --gray-900: #111827;
     }
 
     * {
@@ -25,116 +30,239 @@
     }
 
     body {
-      font-family: 'Inter', sans-serif;
+      font-family: 'Work Sans', sans-serif;
       background-color: var(--black);
       color: var(--white);
       overflow-x: hidden;
+      line-height: 1.6;
     }
 
     a {
       text-decoration: none;
       color: inherit;
+      transition: all 0.3s ease;
     }
 
     /* ================= NAVBAR ================= */
-
     header {
-      background-color: var(--purple);
-      padding: 16px 32px;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+      padding: 0;
       position: sticky;
       top: 0;
-      z-index: 100;
+      z-index: 1000;
+      box-shadow: 0 4px 20px rgba(143, 0, 182, 0.3);
     }
 
     .nav-container {
-      max-width: 1200px;
-      margin: auto;
+      max-width: 1400px;
+      margin: 0 auto;
       display: flex;
       align-items: center;
       justify-content: space-between;
+      padding: 18px 40px;
     }
 
-    .logo img {
-      height: 44px;
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 800;
+      font-size: 1.4rem;
+      color: var(--white);
+      transition: transform 0.3s ease;
+    }
+
+    .logo:hover {
+      transform: scale(1.05);
+    }
+
+    .logo i {
+      font-size: 1.8rem;
     }
 
     nav ul {
       display: flex;
-      gap: 28px;
+      gap: 36px;
       list-style: none;
       align-items: center;
     }
 
     nav ul li a {
-      font-family: 'Poppins', sans-serif;
+      font-family: 'Work Sans', sans-serif;
       font-weight: 500;
+      font-size: 0.95rem;
+      position: relative;
+      padding: 8px 0;
+    }
+
+    nav ul li a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--white);
+      transition: width 0.3s ease;
+    }
+
+    nav ul li a:hover::after {
+      width: 100%;
     }
 
     .nav-cta {
-      padding: 10px 18px;
-      background-color: black;
+      padding: 12px 24px;
+      background-color: var(--white);
+      color: var(--primary);
       border-radius: 8px;
+      font-weight: 600;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      transition: all 0.3s ease;
+    }
+
+    .nav-cta:hover {
+      background-color: var(--black);
+      color: var(--white);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
     }
 
     /* ================= HERO ================= */
-
     .hero {
       position: relative;
-      min-height: 90vh;
+      min-height: 85vh;
       display: flex;
       align-items: center;
+      background: linear-gradient(135deg, #0A0A0A 0%, #1a0a1f 100%);
       overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(circle at 20% 50%, rgba(143, 0, 182, 0.15) 0%, transparent 50%),
+                  radial-gradient(circle at 80% 50%, rgba(143, 0, 182, 0.1) 0%, transparent 50%);
+      pointer-events: none;
     }
 
     .hero-content {
       position: relative;
       z-index: 2;
-      max-width: 600px;
-      padding: 0 32px;
+      max-width: 650px;
+      padding: 0 40px;
+      animation: fadeInUp 0.8s ease;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(143, 0, 182, 0.15);
+      border: 1px solid rgba(143, 0, 182, 0.3);
+      padding: 8px 16px;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--primary-light);
+      margin-bottom: 24px;
+      animation: fadeInUp 0.8s ease 0.2s both;
     }
 
     .hero h1 {
-      font-family: 'Poppins', sans-serif;
-      font-size: 3.2rem;
-      margin-bottom: 20px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 3.5rem;
+      font-weight: 800;
+      line-height: 1.15;
+      margin-bottom: 24px;
+      background: linear-gradient(135deg, #FFFFFF 0%, #E0E0E0 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: fadeInUp 0.8s ease 0.3s both;
+    }
+
+    .hero h1 .highlight {
+      background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
 
     .hero p {
-      font-size: 1.1rem;
-      line-height: 1.6;
-      margin-bottom: 28px;
-      max-width: 520px;
+      font-size: 1.2rem;
+      line-height: 1.7;
+      color: var(--gray-300);
+      margin-bottom: 36px;
+      max-width: 580px;
+      animation: fadeInUp 0.8s ease 0.4s both;
     }
 
     .hero-buttons {
       display: flex;
       gap: 16px;
+      flex-wrap: wrap;
+      animation: fadeInUp 0.8s ease 0.5s both;
+    }
+
+    .btn {
+      padding: 16px 32px;
+      border-radius: 10px;
+      font-weight: 600;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+      border: none;
     }
 
     .btn-primary {
-      background-color: var(--purple);
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
       color: white;
-      padding: 14px 24px;
-      border-radius: 10px;
-      font-weight: 600;
-      font-family: 'Poppins', sans-serif;
+      box-shadow: 0 4px 20px rgba(143, 0, 182, 0.4);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 30px rgba(143, 0, 182, 0.5);
     }
 
     .btn-secondary {
-      border: 2px solid white;
-      padding: 14px 24px;
-      border-radius: 10px;
-      font-weight: 600;
-      font-family: 'Poppins', sans-serif;
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      backdrop-filter: blur(10px);
     }
 
-    /* HERO IMAGE + FADE */
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.15);
+      border-color: var(--white);
+      transform: translateY(-3px);
+    }
 
     .hero-image {
       position: absolute;
       top: 0;
-      right: -8%;
-      width: 65%;
+      right: -5%;
+      width: 55%;
       height: 100%;
       z-index: 1;
       display: flex;
@@ -147,97 +275,461 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
+      opacity: 0.6;
+      animation: fadeIn 1.2s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 0.6; }
     }
 
     .hero-fade {
       position: absolute;
       top: 0;
       right: 0;
-      width: 55%;
+      width: 60%;
       height: 100%;
-      background: linear-gradient(to left, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 65%);
+      background: linear-gradient(to left, rgba(10, 10, 10, 0) 0%, rgba(10, 10, 10, 1) 70%);
       z-index: 2;
     }
 
-    /* ================= WHAT WE FIX ================= */
-
-    .what-we-fix {
-      background-color: var(--purple);
-      padding: 80px 32px;
-      text-align: center;
+    /* ================= TRUST BAR ================= */
+    .trust-bar {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 30px 40px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     }
 
-    .what-we-fix h2 {
-      font-family: 'Poppins', sans-serif;
-      font-size: 2.4rem;
-      margin-bottom: 48px;
-      color: black;
-    }
-
-    .fix-grid {
-      max-width: 1200px;
-      margin: auto;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 28px;
-    }
-
-    .fix-card {
-      background-color: black;
-      padding: 36px 24px;
-      border-radius: 18px;
+    .trust-container {
+      max-width: 1400px;
+      margin: 0 auto;
       display: flex;
-      flex-direction: column;
+      justify-content: space-around;
       align-items: center;
-      gap: 16px;
+      flex-wrap: wrap;
+      gap: 40px;
     }
 
-    .fix-card i {
-      font-size: 36px;
-      color: var(--purple);
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
     }
 
-    .fix-card h3 {
-      font-family: 'Poppins', sans-serif;
-      color: white;
+    .trust-item i {
+      font-size: 2rem;
+      color: var(--primary-light);
     }
 
-    /* ================= CTA ================= */
+    .trust-text h3 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 2px;
+    }
 
-    .cta {
-      padding: 90px 32px;
+    .trust-text p {
+      font-size: 0.9rem;
+      color: var(--gray-300);
+    }
+
+    /* ================= SERVICES ================= */
+    .services {
+      background: var(--black);
+      padding: 100px 40px;
+    }
+
+    .services-container {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .section-header {
       text-align: center;
-      background: linear-gradient(135deg, #8F00B6, #4b0062);
+      margin-bottom: 60px;
     }
 
-    .cta h2 {
-      font-family: 'Poppins', sans-serif;
-      font-size: 2.6rem;
-      margin-bottom: 24px;
+    .section-badge {
+      display: inline-block;
+      background: rgba(143, 0, 182, 0.15);
+      border: 1px solid rgba(143, 0, 182, 0.3);
+      padding: 6px 16px;
+      border-radius: 50px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--primary-light);
+      margin-bottom: 16px;
     }
 
-    /* ================= MOBILE ================= */
+    .section-header h2 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 2.8rem;
+      font-weight: 800;
+      margin-bottom: 16px;
+      background: linear-gradient(135deg, #FFFFFF 0%, #E0E0E0 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
 
-    @media (max-width: 900px) {
+    .section-header p {
+      font-size: 1.1rem;
+      color: var(--gray-300);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+    }
+
+    .service-card {
+      background: linear-gradient(135deg, rgba(20, 20, 20, 0.8) 0%, rgba(30, 10, 35, 0.6) 100%);
+      border: 1px solid rgba(143, 0, 182, 0.2);
+      padding: 40px 30px;
+      border-radius: 20px;
+      text-align: center;
+      transition: all 0.4s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(circle at center, rgba(143, 0, 182, 0.1) 0%, transparent 70%);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+
+    .service-card:hover::before {
+      opacity: 1;
+    }
+
+    .service-card:hover {
+      transform: translateY(-8px);
+      border-color: var(--primary);
+      box-shadow: 0 12px 40px rgba(143, 0, 182, 0.3);
+    }
+
+    .service-icon {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto 24px;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      color: var(--white);
+      transition: all 0.4s ease;
+    }
+
+    .service-card:hover .service-icon {
+      transform: scale(1.1) rotate(5deg);
+      box-shadow: 0 8px 25px rgba(143, 0, 182, 0.5);
+    }
+
+    .service-card h3 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: var(--white);
+    }
+
+    .service-card p {
+      color: var(--gray-300);
+      line-height: 1.6;
+      font-size: 0.95rem;
+    }
+
+    /* ================= WHY CHOOSE US ================= */
+    .why-choose {
+      background: linear-gradient(135deg, rgba(143, 0, 182, 0.05) 0%, rgba(10, 10, 10, 1) 100%);
+      padding: 100px 40px;
+    }
+
+    .why-container {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+      margin-top: 60px;
+    }
+
+    .why-card {
+      text-align: center;
+      padding: 30px 20px;
+    }
+
+    .why-card i {
+      font-size: 3rem;
+      color: var(--primary-light);
+      margin-bottom: 20px;
+      display: block;
+    }
+
+    .why-card h3 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .why-card p {
+      color: var(--gray-300);
+      line-height: 1.6;
+    }
+
+    /* ================= CTA SECTION ================= */
+    .cta-section {
+      padding: 100px 40px;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -10%;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+
+    .cta-container {
+      max-width: 900px;
+      margin: 0 auto;
+      text-align: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .cta-container h2 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 3rem;
+      font-weight: 800;
+      margin-bottom: 20px;
+      color: var(--white);
+    }
+
+    .cta-container p {
+      font-size: 1.2rem;
+      margin-bottom: 36px;
+      color: rgba(255, 255, 255, 0.9);
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-white {
+      background: var(--white);
+      color: var(--primary);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .btn-white:hover {
+      background: var(--gray-100);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--white);
+      border: 2px solid var(--white);
+    }
+
+    .btn-outline:hover {
+      background: var(--white);
+      color: var(--primary);
+      transform: translateY(-3px);
+    }
+
+    /* ================= FOOTER ================= */
+    footer {
+      background: var(--gray-900);
+      padding: 60px 40px 30px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .footer-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    .footer-section h3 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      color: var(--white);
+    }
+
+    .footer-section p,
+    .footer-section a {
+      color: var(--gray-300);
+      margin-bottom: 12px;
+      display: block;
+      line-height: 1.6;
+    }
+
+    .footer-section a:hover {
+      color: var(--primary-light);
+    }
+
+    .social-links {
+      display: flex;
+      gap: 16px;
+      margin-top: 20px;
+    }
+
+    .social-links a {
+      width: 40px;
+      height: 40px;
+      background: rgba(143, 0, 182, 0.15);
+      border: 1px solid rgba(143, 0, 182, 0.3);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary-light);
+      transition: all 0.3s ease;
+    }
+
+    .social-links a:hover {
+      background: var(--primary);
+      border-color: var(--primary);
+      color: var(--white);
+      transform: translateY(-3px);
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding-top: 30px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      color: var(--gray-300);
+      font-size: 0.9rem;
+    }
+
+    /* ================= RESPONSIVE ================= */
+    @media (max-width: 1024px) {
+      .hero h1 {
+        font-size: 2.8rem;
+      }
+
+      .hero-image {
+        width: 60%;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nav-container {
+        padding: 16px 20px;
+      }
+
+      nav ul {
+        gap: 20px;
+        font-size: 0.9rem;
+      }
+
       .hero {
-        flex-direction: column;
-        justify-content: center;
-        text-align: left;
+        min-height: auto;
+        padding: 80px 0;
+      }
+
+      .hero-content {
+        padding: 0 20px;
+      }
+
+      .hero h1 {
+        font-size: 2.2rem;
+      }
+
+      .hero p {
+        font-size: 1rem;
       }
 
       .hero-image {
         position: relative;
         width: 100%;
-        right: 0;
-        height: 340px;
+        height: 300px;
+        margin-top: 40px;
       }
 
       .hero-fade {
         display: none;
       }
 
-      .hero-content {
-        padding-top: 80px;
+      .trust-container {
+        gap: 30px;
+      }
+
+      .services,
+      .why-choose,
+      .cta-section {
+        padding: 60px 20px;
+      }
+
+      .section-header h2,
+      .cta-container h2 {
+        font-size: 2rem;
+      }
+
+      .btn {
+        padding: 14px 24px;
+        font-size: 0.9rem;
+      }
+
+      .footer-container {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      nav ul {
+        display: none;
+      }
+
+      .hero h1 {
+        font-size: 1.8rem;
+      }
+
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .why-grid {
+        grid-template-columns: 1fr;
       }
     }
   </style>
@@ -248,7 +740,8 @@
 <header>
   <div class="nav-container">
     <a href="home.html" class="logo">
-      <img src="logo.svg" alt="Taz’s Tech Town">
+      <i class="fas fa-bolt"></i>
+      <span>Taz's Tech Town</span>
     </a>
     <nav>
       <ul>
@@ -264,14 +757,24 @@
 
 <section class="hero">
   <div class="hero-content">
-    <h1>Mobile Tech Repair That Comes to You</h1>
+    <div class="hero-badge">
+      <i class="fas fa-star"></i>
+      Serving St. Marys & Surrounding Areas
+    </div>
+    <h1>Mobile Tech Repair That Comes to <span class="highlight">You</span></h1>
     <p>
-      Smartphones, tablets, computers, and game consoles repaired on-site or pickup & return.
-      Proudly serving St. Marys, GA and surrounding areas.
+      Fast, professional repairs for smartphones, tablets, computers, and game consoles. 
+      We come to your location or offer convenient pickup & return service.
     </p>
     <div class="hero-buttons">
-      <a href="getquote.html" class="btn-primary">Get a Quote</a>
-      <a href="services.html" class="btn-secondary">View Services</a>
+      <a href="getquote.html" class="btn btn-primary">
+        Get Free Quote
+        <i class="fas fa-arrow-right"></i>
+      </a>
+      <a href="services.html" class="btn btn-secondary">
+        View Services
+        <i class="fas fa-wrench"></i>
+      </a>
     </div>
   </div>
 
@@ -282,32 +785,176 @@
   <div class="hero-fade"></div>
 </section>
 
-<section class="what-we-fix">
-  <h2>What We Fix</h2>
-  <div class="fix-grid">
-    <div class="fix-card">
-      <i class="ph ph-device-mobile"></i>
-      <h3>Smartphones</h3>
+<section class="trust-bar">
+  <div class="trust-container">
+    <div class="trust-item">
+      <i class="fas fa-clock"></i>
+      <div class="trust-text">
+        <h3>Same-Day</h3>
+        <p>Fast Repairs</p>
+      </div>
     </div>
-    <div class="fix-card">
-      <i class="ph ph-device-tablet"></i>
-      <h3>Tablets</h3>
+    <div class="trust-item">
+      <i class="fas fa-shield-halved"></i>
+      <div class="trust-text">
+        <h3>Warranty</h3>
+        <p>All Repairs Protected</p>
+      </div>
     </div>
-    <div class="fix-card">
-      <i class="ph ph-laptop"></i>
-      <h3>Computers</h3>
+    <div class="trust-item">
+      <i class="fas fa-star"></i>
+      <div class="trust-text">
+        <h3>5-Star</h3>
+        <p>Rated Service</p>
+      </div>
     </div>
-    <div class="fix-card">
-      <i class="ph ph-game-controller"></i>
-      <h3>Game Consoles</h3>
+    <div class="trust-item">
+      <i class="fas fa-certificate"></i>
+      <div class="trust-text">
+        <h3>Certified</h3>
+        <p>Technicians</p>
+      </div>
     </div>
   </div>
 </section>
 
-<section class="cta">
-  <h2>Need a Repair? We Come to You.</h2>
-  <a href="getquote.html" class="btn-primary">Get Your Free Quote</a>
+<section class="services">
+  <div class="services-container">
+    <div class="section-header">
+      <span class="section-badge">What We Fix</span>
+      <h2>Professional Repair Services</h2>
+      <p>Expert repairs for all your devices with quality parts and guaranteed workmanship</p>
+    </div>
+
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">
+          <i class="fas fa-mobile-screen"></i>
+        </div>
+        <h3>Smartphone Repair</h3>
+        <p>Screen replacements, battery issues, charging ports, and more for all major brands</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">
+          <i class="fas fa-tablet-screen-button"></i>
+        </div>
+        <h3>Tablet Repair</h3>
+        <p>iPad and Android tablet repairs including screens, batteries, and software fixes</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">
+          <i class="fas fa-laptop"></i>
+        </div>
+        <h3>Computer Repair</h3>
+        <p>Laptop and desktop repairs, upgrades, virus removal, and performance optimization</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">
+          <i class="fas fa-gamepad"></i>
+        </div>
+        <h3>Console Repair</h3>
+        <p>PlayStation, Xbox, Nintendo Switch repairs and troubleshooting</p>
+      </div>
+    </div>
+  </div>
 </section>
+
+<section class="why-choose">
+  <div class="why-container">
+    <div class="section-header">
+      <span class="section-badge">Why Choose Us</span>
+      <h2>The Taz's Tech Town Difference</h2>
+      <p>We're not just another repair shop — we're your mobile tech solution</p>
+    </div>
+
+    <div class="why-grid">
+      <div class="why-card">
+        <i class="fas fa-truck-fast"></i>
+        <h3>We Come to You</h3>
+        <p>No need to leave your home or office. We bring our expertise directly to your location.</p>
+      </div>
+
+      <div class="why-card">
+        <i class="fas fa-bolt"></i>
+        <h3>Fast Turnaround</h3>
+        <p>Most repairs completed the same day. Get your device back quickly without the hassle.</p>
+      </div>
+
+      <div class="why-card">
+        <i class="fas fa-hand-holding-dollar"></i>
+        <h3>Fair Pricing</h3>
+        <p>Transparent pricing with free diagnostics. No hidden fees or surprise charges.</p>
+      </div>
+
+      <div class="why-card">
+        <i class="fas fa-certificate"></i>
+        <h3>Quality Guaranteed</h3>
+        <p>All repairs backed by our warranty. We use high-quality parts and stand behind our work.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section">
+  <div class="cta-container">
+    <h2>Ready to Get Your Device Fixed?</h2>
+    <p>Get a free quote today and experience the convenience of mobile tech repair done right.</p>
+    <div class="cta-buttons">
+      <a href="getquote.html" class="btn btn-white">
+        Get Your Free Quote
+        <i class="fas fa-arrow-right"></i>
+      </a>
+      <a href="tel:+1234567890" class="btn btn-outline">
+        <i class="fas fa-phone"></i>
+        Call Us Now
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-container">
+    <div class="footer-section">
+      <h3>Taz's Tech Town</h3>
+      <p>Your trusted mobile tech repair service in St. Marys, GA and surrounding areas.</p>
+      <div class="social-links">
+        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+      </div>
+    </div>
+
+    <div class="footer-section">
+      <h3>Quick Links</h3>
+      <a href="home.html">Home</a>
+      <a href="about.html">About Us</a>
+      <a href="services.html">Services</a>
+      <a href="getquote.html">Get a Quote</a>
+    </div>
+
+    <div class="footer-section">
+      <h3>Services</h3>
+      <a href="services.html">Phone Repair</a>
+      <a href="services.html">Tablet Repair</a>
+      <a href="services.html">Computer Repair</a>
+      <a href="services.html">Console Repair</a>
+    </div>
+
+    <div class="footer-section">
+      <h3>Contact</h3>
+      <p><i class="fas fa-map-marker-alt"></i> St. Marys, GA</p>
+      <p><i class="fas fa-phone"></i> (123) 456-7890</p>
+      <p><i class="fas fa-envelope"></i> info@tazstechtown.com</p>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; 2026 Taz's Tech Town. All rights reserved.</p>
+  </div>
+</footer>
 
 </body>
 </html>
