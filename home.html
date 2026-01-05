@@ -745,7 +745,7 @@
 
       .hero {
         min-height: 100vh;
-        padding: 80px 20px 60px;
+        padding: 0;
         position: relative;
         display: flex;
         align-items: center;
@@ -753,22 +753,31 @@
       }
 
       .hero::before {
-        display: none;
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 2;
       }
 
       .hero-content {
         position: relative;
-        padding: 40px 30px;
-        width: 90%;
-        max-width: 500px;
+        padding: 80px 30px 60px;
+        width: 100%;
+        max-width: 100%;
         z-index: 3;
         display: flex;
         flex-direction: column;
         align-items: center;
         text-align: center;
-        background: rgba(0, 0, 0, 0.75);
-        border-radius: 20px;
-        backdrop-filter: blur(10px);
+        background: transparent;
+        border-radius: 0;
+        backdrop-filter: none;
       }
 
       .hero-badge {
@@ -784,10 +793,12 @@
         font-size: 1rem;
         text-align: center;
         max-width: 100%;
+        padding: 0 20px;
       }
 
       .hero-buttons {
         justify-content: center;
+        padding: 0 20px;
       }
 
       .hero-image {
@@ -866,8 +877,7 @@
 
     @media (max-width: 480px) {
       .hero-content {
-        padding: 30px 20px;
-        width: 95%;
+        padding: 60px 20px 40px;
       }
 
       .hero h1 {
