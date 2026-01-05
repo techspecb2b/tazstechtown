@@ -747,17 +747,23 @@
         min-height: 100vh;
         padding: 0;
         position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
       }
 
       .hero-content {
         position: relative;
-        padding: 80px 20px 60px;
-        max-width: 100%;
+        padding: 40px 30px;
+        max-width: 90%;
         z-index: 3;
         display: flex;
         flex-direction: column;
         align-items: center;
         text-align: center;
+        background: rgba(0, 0, 0, 0.7);
+        border-radius: 20px;
+        backdrop-filter: blur(10px);
       }
 
       .hero-badge {
@@ -787,7 +793,6 @@
         left: 0;
         right: 0;
         margin: 0;
-        justify-content: center;
         z-index: 1;
       }
 
@@ -799,15 +804,7 @@
       }
 
       .hero-fade {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(10, 10, 10, 0.75);
-        z-index: 2;
+        display: none;
       }
 
       .trust-bar {
@@ -858,6 +855,11 @@
     }
 
     @media (max-width: 480px) {
+      .hero-content {
+        padding: 30px 20px;
+        max-width: 95%;
+      }
+
       .hero h1 {
         font-size: 1.8rem;
       }
