@@ -3,19 +3,19 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tazs Tech Town | Mobile Tech Repair</title>
+  <title>Taz’s Tech Town | Mobile Tech Repair</title>
 
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <!-- Icons -->
+  <link href="https://unpkg.com/@phosphor-icons/web@2.0.3/src/regular/style.css" rel="stylesheet">
 
   <style>
     :root {
       --purple: #8F00B6;
-      --black: #000;
-      --white: #fff;
+      --black: #000000;
+      --white: #ffffff;
     }
 
     * {
@@ -26,240 +26,218 @@
 
     body {
       font-family: 'Inter', sans-serif;
-      background: #000;
-      color: #fff;
+      background-color: var(--black);
+      color: var(--white);
+      overflow-x: hidden;
     }
 
-    /* ================= NAV ================= */
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* ================= NAVBAR ================= */
 
     header {
-      background: var(--purple);
-      padding: 15px 30px;
+      background-color: var(--purple);
+      padding: 16px 32px;
       position: sticky;
       top: 0;
-      z-index: 1000;
+      z-index: 100;
     }
 
-    .nav {
+    .nav-container {
+      max-width: 1200px;
+      margin: auto;
       display: flex;
+      align-items: center;
       justify-content: space-between;
-      align-items: center;
     }
 
-    .nav img {
-      height: 48px;
+    .logo img {
+      height: 44px;
     }
 
-    .nav-links {
+    nav ul {
       display: flex;
-      gap: 25px;
+      gap: 28px;
+      list-style: none;
       align-items: center;
     }
 
-    .nav-links a {
-      color: #fff;
-      text-decoration: none;
+    nav ul li a {
       font-family: 'Poppins', sans-serif;
       font-weight: 500;
     }
 
-    .nav-links .cta {
-      background: #000;
+    .nav-cta {
       padding: 10px 18px;
-      border-radius: 6px;
-      font-weight: 600;
-    }
-
-    .hamburger {
-      display: none;
-      font-size: 26px;
-      color: #fff;
-      cursor: pointer;
+      background-color: black;
+      border-radius: 8px;
     }
 
     /* ================= HERO ================= */
 
     .hero {
       position: relative;
-      min-height: 85vh;
+      min-height: 90vh;
       display: flex;
       align-items: center;
-      padding: 80px 40px;
       overflow: hidden;
-    }
-
-    /* left-side fade only */
-    .hero::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(
-        to right,
-        rgba(0,0,0,0.85) 0%,
-        rgba(0,0,0,0.7) 45%,
-        rgba(0,0,0,0.35) 65%,
-        rgba(0,0,0,0.15) 80%,
-        rgba(0,0,0,0) 100%
-      );
-      z-index: 1;
     }
 
     .hero-content {
       position: relative;
       z-index: 2;
       max-width: 600px;
+      padding: 0 32px;
     }
 
     .hero h1 {
       font-family: 'Poppins', sans-serif;
-      font-size: 3rem;
+      font-size: 3.2rem;
       margin-bottom: 20px;
     }
 
     .hero p {
       font-size: 1.1rem;
-      margin-bottom: 30px;
       line-height: 1.6;
+      margin-bottom: 28px;
+      max-width: 520px;
     }
 
-    .hero-buttons a {
-      display: inline-block;
-      margin-right: 15px;
-      padding: 14px 26px;
-      border-radius: 6px;
-      text-decoration: none;
-      font-weight: 600;
+    .hero-buttons {
+      display: flex;
+      gap: 16px;
     }
 
     .btn-primary {
-      background: var(--purple);
-      color: #fff;
+      background-color: var(--purple);
+      color: white;
+      padding: 14px 24px;
+      border-radius: 10px;
+      font-weight: 600;
+      font-family: 'Poppins', sans-serif;
     }
 
     .btn-secondary {
-      background: #000;
-      color: #fff;
-      border: 1px solid #444;
+      border: 2px solid white;
+      padding: 14px 24px;
+      border-radius: 10px;
+      font-weight: 600;
+      font-family: 'Poppins', sans-serif;
     }
 
-    /* HERO IMAGE — STRETCHED */
+    /* HERO IMAGE + FADE */
+
     .hero-image {
       position: absolute;
-      right: -5%;
       top: 0;
+      right: -8%;
+      width: 65%;
       height: 100%;
-      width: 55%;
+      z-index: 1;
       display: flex;
       align-items: center;
       justify-content: center;
-      z-index: 0;
+      pointer-events: none;
     }
 
     .hero-image img {
       width: 100%;
-      height: auto;
-      max-height: 90%;
-      object-fit: contain;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero-fade {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 55%;
+      height: 100%;
+      background: linear-gradient(to left, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 65%);
+      z-index: 2;
     }
 
     /* ================= WHAT WE FIX ================= */
 
-    .section.purple {
-      background: var(--purple);
-      padding: 80px 40px;
+    .what-we-fix {
+      background-color: var(--purple);
+      padding: 80px 32px;
       text-align: center;
     }
 
-    .section.purple h2 {
+    .what-we-fix h2 {
       font-family: 'Poppins', sans-serif;
       font-size: 2.4rem;
-      color: #000;
-      margin-bottom: 50px;
+      margin-bottom: 48px;
+      color: black;
     }
 
-    .card-grid {
+    .fix-grid {
+      max-width: 1200px;
+      margin: auto;
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 30px;
-      max-width: 1100px;
-      margin: auto;
+      gap: 28px;
     }
 
-    .card {
-      background: #0c0c0c;
+    .fix-card {
+      background-color: black;
+      padding: 36px 24px;
       border-radius: 18px;
-      padding: 35px 20px;
-      transition: transform 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
     }
 
-    .card:hover {
-      transform: translateY(-8px);
-    }
-
-    .card i {
-      font-size: 40px;
+    .fix-card i {
+      font-size: 36px;
       color: var(--purple);
-      margin-bottom: 15px;
     }
 
-    .card h3 {
-      color: #fff;
+    .fix-card h3 {
       font-family: 'Poppins', sans-serif;
-      font-size: 1.2rem;
+      color: white;
+    }
+
+    /* ================= CTA ================= */
+
+    .cta {
+      padding: 90px 32px;
+      text-align: center;
+      background: linear-gradient(135deg, #8F00B6, #4b0062);
+    }
+
+    .cta h2 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 2.6rem;
+      margin-bottom: 24px;
     }
 
     /* ================= MOBILE ================= */
 
-    @media (max-width: 768px) {
-
+    @media (max-width: 900px) {
       .hero {
-        padding: 60px 25px;
         flex-direction: column;
-      }
-
-      .hero::before {
-        background: linear-gradient(
-          to bottom,
-          rgba(0,0,0,0.5) 0%,
-          rgba(0,0,0,0.3) 60%,
-          rgba(0,0,0,0.15) 100%
-        );
+        justify-content: center;
+        text-align: left;
       }
 
       .hero-image {
         position: relative;
         width: 100%;
-        height: auto;
         right: 0;
-        margin-top: 30px;
+        height: 340px;
       }
 
-      .hero-image img {
-        width: 100%;
-        max-height: none;
-      }
-
-      .hero h1 {
-        font-size: 2.2rem;
-      }
-
-      .nav-links {
-        position: absolute;
-        top: 75px;
-        right: 20px;
-        background: #000;
-        flex-direction: column;
-        padding: 25px;
-        border-radius: 10px;
+      .hero-fade {
         display: none;
       }
 
-      .nav-links.active {
-        display: flex;
-      }
-
-      .hamburger {
-        display: block;
+      .hero-content {
+        padding-top: 80px;
       }
     }
   </style>
@@ -268,31 +246,28 @@
 <body>
 
 <header>
-  <nav class="nav">
-    <a href="home.html">
-      <img src="logo.svg" alt="Tazs Tech Town Logo">
+  <div class="nav-container">
+    <a href="home.html" class="logo">
+      <img src="logo.svg" alt="Taz’s Tech Town">
     </a>
-
-    <div class="hamburger" onclick="toggleMenu()">
-      <i class="fa-solid fa-bars"></i>
-    </div>
-
-    <div class="nav-links" id="navLinks">
-      <a href="home.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="services.html">Services</a>
-      <a href="contact.html">Contact</a>
-      <a href="getquote.html" class="cta">Get a Quote</a>
-    </div>
-  </nav>
+    <nav>
+      <ul>
+        <li><a href="home.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a class="nav-cta" href="getquote.html">Get a Quote</a></li>
+      </ul>
+    </nav>
+  </div>
 </header>
 
 <section class="hero">
   <div class="hero-content">
     <h1>Mobile Tech Repair That Comes to You</h1>
     <p>
-      Smartphones, tablets, computers, and game consoles repaired on-site
-      or pickup & return. Serving St. Marys, GA and surrounding areas.
+      Smartphones, tablets, computers, and game consoles repaired on-site or pickup & return.
+      Proudly serving St. Marys, GA and surrounding areas.
     </p>
     <div class="hero-buttons">
       <a href="getquote.html" class="btn-primary">Get a Quote</a>
@@ -301,25 +276,38 @@
   </div>
 
   <div class="hero-image">
-    <img src="hero.png" alt="Tazs Tech Town Mascot Repairing a Phone">
+    <img src="hero.png" alt="Taz repairing a phone">
   </div>
+
+  <div class="hero-fade"></div>
 </section>
 
-<section class="section purple">
+<section class="what-we-fix">
   <h2>What We Fix</h2>
-  <div class="card-grid">
-    <div class="card"><i class="fa-solid fa-mobile-screen-button"></i><h3>Smartphones</h3></div>
-    <div class="card"><i class="fa-solid fa-tablet-screen-button"></i><h3>Tablets</h3></div>
-    <div class="card"><i class="fa-solid fa-laptop"></i><h3>Computers</h3></div>
-    <div class="card"><i class="fa-solid fa-gamepad"></i><h3>Game Consoles</h3></div>
+  <div class="fix-grid">
+    <div class="fix-card">
+      <i class="ph ph-device-mobile"></i>
+      <h3>Smartphones</h3>
+    </div>
+    <div class="fix-card">
+      <i class="ph ph-device-tablet"></i>
+      <h3>Tablets</h3>
+    </div>
+    <div class="fix-card">
+      <i class="ph ph-laptop"></i>
+      <h3>Computers</h3>
+    </div>
+    <div class="fix-card">
+      <i class="ph ph-game-controller"></i>
+      <h3>Game Consoles</h3>
+    </div>
   </div>
 </section>
 
-<script>
-  function toggleMenu() {
-    document.getElementById('navLinks').classList.toggle('active');
-  }
-</script>
+<section class="cta">
+  <h2>Need a Repair? We Come to You.</h2>
+  <a href="getquote.html" class="btn-primary">Get Your Free Quote</a>
+</section>
 
 </body>
 </html>
