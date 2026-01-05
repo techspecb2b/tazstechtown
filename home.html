@@ -77,8 +77,8 @@
       transform: scale(1.05);
     }
 
-    .logo i {
-      font-size: 1.8rem;
+    .logo img {
+      height: 44px;
     }
 
     nav ul {
@@ -261,13 +261,13 @@
     .hero-image {
       position: absolute;
       top: 0;
-      right: -5%;
-      width: 55%;
+      right: 0;
+      width: 60%;
       height: 100%;
       z-index: 1;
       display: flex;
       align-items: center;
-      justify-content: center;
+      justify-content: flex-end;
       pointer-events: none;
     }
 
@@ -275,22 +275,22 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      opacity: 0.6;
+      object-position: right center;
       animation: fadeIn 1.2s ease;
     }
 
     @keyframes fadeIn {
       from { opacity: 0; }
-      to { opacity: 0.6; }
+      to { opacity: 1; }
     }
 
     .hero-fade {
       position: absolute;
       top: 0;
+      left: 0;
       right: 0;
-      width: 60%;
       height: 100%;
-      background: linear-gradient(to left, rgba(10, 10, 10, 0) 0%, rgba(10, 10, 10, 1) 70%);
+      background: linear-gradient(to right, rgba(10, 10, 10, 1) 0%, rgba(10, 10, 10, 1) 35%, rgba(10, 10, 10, 0.3) 65%, rgba(10, 10, 10, 0) 100%);
       z-index: 2;
     }
 
@@ -740,8 +740,7 @@
 <header>
   <div class="nav-container">
     <a href="home.html" class="logo">
-      <i class="fas fa-bolt"></i>
-      <span>Taz's Tech Town</span>
+      <img src="logo.svg" alt="Taz's Tech Town">
     </a>
     <nav>
       <ul>
@@ -907,7 +906,7 @@
         Get Your Free Quote
         <i class="fas fa-arrow-right"></i>
       </a>
-      <a href="tel:+1234567890" class="btn btn-outline">
+      <a href="tel:+19124672108" class="btn btn-outline">
         <i class="fas fa-phone"></i>
         Call Us Now
       </a>
@@ -946,15 +945,9 @@
     <div class="footer-section">
       <h3>Contact</h3>
       <p><i class="fas fa-map-marker-alt"></i> St. Marys, GA</p>
-      <p><i class="fas fa-phone"></i> (123) 456-7890</p>
-      <p><i class="fas fa-envelope"></i> info@tazstechtown.com</p>
+      <p><i class="fas fa-phone"></i> (912) 467-2108</p>
+      <p><i class="fas fa-envelope"></i> chaddhamsmith128@gmail.com</p>
     </div>
   </div>
 
-  <div class="footer-bottom">
-    <p>&copy; 2026 Taz's Tech Town. All rights reserved.</p>
-  </div>
-</footer>
-
-</body>
-</html>
+  <
