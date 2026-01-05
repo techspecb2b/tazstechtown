@@ -746,20 +746,18 @@
       .hero {
         min-height: 100vh;
         padding: 0;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
+        position: relative;
       }
 
       .hero-content {
-        padding: 40px 20px;
+        position: relative;
+        padding: 80px 20px 60px;
         max-width: 100%;
         z-index: 3;
         display: flex;
         flex-direction: column;
         align-items: center;
+        text-align: center;
       }
 
       .hero-badge {
@@ -812,9 +810,29 @@
         z-index: 2;
       }
 
+      .trust-bar {
+        padding: 40px 20px;
+      }
+
       .trust-container {
-        gap: 20px;
+        gap: 30px;
         flex-direction: column;
+        align-items: center;
+      }
+
+      .trust-item {
+        justify-content: center;
+        text-align: center;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .trust-text {
+        text-align: center;
+      }
+
+      .trust-item i {
+        font-size: 2.5rem;
       }
 
       .services,
